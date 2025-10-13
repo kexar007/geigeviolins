@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header with Navigation -->
+        {{ partial "header.html" . }}
+
+        <!-- Main Content -->
+        <main class="main-content">
+            {{ block "main" . }}{{ end }}
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

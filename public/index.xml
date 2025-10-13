@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>Geige violins</title>
+    <link>http://localhost:59669/</link>
+    <description>Recent content on Geige violins</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:59669/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Geige Violins</title>
+      <link>http://localhost:59669/about/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:59669/about/</guid>
+      <description>&lt;h2 id=&#34;our-story&#34;&gt;Our Story&lt;/h2&gt;&#xA;&lt;p&gt;Founded in 2010, Geige Violins has been dedicated to bringing the finest string instruments to musicians of all levels. Our passion for music and craftsmanship drives us to curate a collection of exceptional violins that inspire both beginners and seasoned professionals.&lt;/p&gt;&#xA;&lt;h2 id=&#34;our-mission&#34;&gt;Our Mission&lt;/h2&gt;&#xA;&lt;p&gt;We believe that every musician deserves an instrument that not only meets their technical needs but also speaks to their soul. That&amp;rsquo;s why we carefully select each violin in our collection, ensuring that every piece meets our rigorous standards of quality and tone.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contact Us</title>
+      <link>http://localhost:59669/contact/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:59669/contact/</guid>
+      <description>&lt;h2 id=&#34;get-in-touch&#34;&gt;Get in Touch&lt;/h2&gt;&#xA;&lt;p&gt;We&amp;rsquo;d love to hear from you! Whether you have questions about our instruments, need guidance in selecting the perfect violin, or want to discuss a special order, our team is here to help.&lt;/p&gt;&#xA;&lt;h2 id=&#34;visit-our-showroom&#34;&gt;Visit Our Showroom&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Address:&lt;/strong&gt;&lt;!-- raw HTML omitted --&gt;&#xA;123 Music Avenue&lt;!-- raw HTML omitted --&gt;&#xA;Harmony District&lt;!-- raw HTML omitted --&gt;&#xA;Melody City, MC 12345&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Phone:&lt;/strong&gt; (555) 123-4567&lt;!-- raw HTML omitted --&gt;&#xA;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:info@geigeviolins.com&#34;&gt;info@geigeviolins.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;business-hours&#34;&gt;Business Hours&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Monday - Friday:&lt;/strong&gt; 9:00 AM - 6:00 PM&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Saturday:&lt;/strong&gt; 10:00 AM - 4:00 PM&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sunday:&lt;/strong&gt; Closed (by appointment only)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;send-us-a-message&#34;&gt;Send us a Message&lt;/h2&gt;&#xA;&lt;p&gt;Have a question about our collection? Want to schedule a private viewing? Or just want to say hello? Drop us a line using the contact form, and we&amp;rsquo;ll get back to you within 24 hours.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Our Products</title>
+      <link>http://localhost:59669/products/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:59669/products/</guid>
+      <description>&lt;p&gt;Discover our carefully curated collection of premium violins, each selected for its exceptional craftsmanship and beautiful tone.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

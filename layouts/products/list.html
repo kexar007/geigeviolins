@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="page-header">
+    <div class="container">
+        <h1>{{ .Title }}</h1>
+        <p class="page-description">{{ .Content }}</p>
+    </div>
+</section>
+
+<section class="products-page">
+    <div class="container">
+        <div class="product-grid">
+            {{ range .Site.Data.products.products }}
+            <div class="product-item">
+                <img src="{{ .image | relURL }}" alt="{{ .name }}" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">{{ .name }}</h3>
+                    <p class="product-price">{{ .price }}</p>
+                    <p class="product-description">{{ .description }}</p>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

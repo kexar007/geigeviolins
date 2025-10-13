@@ -1,0 +1,20 @@
+products:
+  - name: "Stradivarius Replica Violin"
+    price: "$2,500"
+    image: "images/products/095d2b1f.jpg"
+    description: "A beautifully crafted replica of the legendary Stradivarius violin, perfect for professional musicians."
+
+  - name: "Beginner Student Violin"
+    price: "$450"
+    image: "images/products/6a71de9b.jpg"
+    description: "An excellent choice for students and beginners, featuring warm tone and easy playability."
+
+  - name: "Concert Master Violin"
+    price: "$1,800"
+    image: "images/products/095d2b1f.jpg"
+    description: "Professional-grade violin suitable for concert performances and advanced players."
+
+  - name: "Baroque Style Violin"
+    price: "$1,200"
+    image: "images/products/6a71de9b.jpg"
+    description: "Authentic baroque styling with period-appropriate craftsmanship and tone."

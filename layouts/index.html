@@ -1,0 +1,31 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>{{ .Site.Title }}</h1>
+        <p class="tagline">Discover a curated collection of violins suitable for all levels, from beginners to professionals.</p>
+    </div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="featured-products">
+    <div class="container">
+        <h2>Featured Instruments</h2>
+        <div class="product-grid">
+            {{ range first 2 (where .Site.Data.products.products "price" "!=" "") }}
+            <div class="product-item">
+                <img src="{{ .image | relURL }}" alt="{{ .name }}" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">{{ .name }}</h3>
+                    <p class="product-price">{{ .price }}</p>
+                    <p class="product-description">{{ .description }}</p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        <div class="view-all">
+            <a href="{{ "products/" | relURL }}" class="btn-primary">View All Products</a>
+        </div>
+    </div>
+</section>
+{{ end }}
