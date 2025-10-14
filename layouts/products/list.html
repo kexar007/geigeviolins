@@ -10,7 +10,7 @@
     <div class="container">
         <div class="product-grid">
             
-{{ range  .Site.Data.products2.products}}
+{{ range  .Site.Data.products.products}}
             <div class="product-item">
                 <img src="{{ index .images 0 | relURL }}" alt="{{ .name }}" class="product-image">
                 <div class="product-info">
