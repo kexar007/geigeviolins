@@ -9,10 +9,10 @@
 <section class="products-page">
     <div class="container">
         <div class="product-grid">
-            <P>Hello</P>
-{{ range .Site.Data.products.products}}
+            
+{{ range  .Site.Data.products2.products}}
             <div class="product-item">
-                <img src="{{ .image | relURL }}" alt="{{ .name }}" class="product-image">
+                <img src="{{ index .images 0 | relURL }}" alt="{{ .name }}" class="product-image">
                 <div class="product-info">
                     <h3 class="product-name">{{ .name }}</h3>
                     <p class="product-price">{{ .price }}</p>

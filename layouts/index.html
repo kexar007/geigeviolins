@@ -7,25 +7,36 @@
     </div>
 </section>
 
-<!-- Featured Products Section -->
-<section class="featured-products">
-    <div class="container">
-        <h2>Featured Instruments</h2>
-        <div class="product-grid">
-            {{ range first 2 (where .Site.Data.products.products "price" "!=" "") }}
-            <div class="product-item">
-                <img src="{{ .image | relURL }}" alt="{{ .name }}" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name">{{ .name }}</h3>
-                    <p class="product-price">{{ .price }}</p>
-                    <p class="product-description">{{ .description }}</p>
+<
+    
+
+
+
+<!-- NEW RESPONSIVE IMAGE GALLERY SECTION -->
+      <section class="image-gallery">
+        <div class="container">
+          <h2 class="gallery-title">Featured Products</h2>
+          <div class="gallery-grid">
+            {{/* Read all files from the specified directory */}}
+            {{ range readDir "static/images/products" }}
+              {{/* Make sure it's a file and not a directory */}}
+              {{ if not .IsDir }}
+                <div class="gallery-card">
+                  <img src="{{ (printf "images/products/%s" .Name) | relURL }}" alt="Image of {{ .Name }}">
                 </div>
-            </div>
+              {{ end }}
             {{ end }}
+          </div>
         </div>
-        <div class="view-all">
-            <a href="{{ "products/" | relURL }}" class="btn-primary">View All Products</a>
-        </div>
-    </div>
-</section>
+      </section>
+
+
+
+
+
+
+
+
+
+
 {{ end }}
