@@ -4,13 +4,7 @@ date: 2024-01-01
 type: "about"
 ---
 
-## Our Story
 
-Founded in 2010, Geige Violins has been dedicated to bringing the finest string instruments to musicians of all levels. Our passion for music and craftsmanship drives us to curate a collection of exceptional violins that inspire both beginners and seasoned professionals.
-
-## Our Mission
-
-We believe that every musician deserves an instrument that not only meets their technical needs but also speaks to their soul. That's why we carefully select each violin in our collection, ensuring that every piece meets our rigorous standards of quality and tone.
 
 ## Our Expertise
 
