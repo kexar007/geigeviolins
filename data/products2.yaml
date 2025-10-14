@@ -3,7 +3,7 @@ products:
     name: "Artic-01"
     price: 8000
     images:
-      - "/images/products/Artic-01/1.jpg"
+      - "images/products/Artic-01/1.jpg"
       - "/images/products/Artic-01/2.jpg"
       - "/images/products/Artic-01/3.jpg"
       - "/images/products/Artic-01/4.jpg"
@@ -14,7 +14,7 @@ products:
     name: "Artic-02"
     price: 5500
     images:
-      - "/images/products/Artic-02/1.jpg"
+      - "images/products/Artic-02/1.jpg"
       - "/images/products/Artic-02/2.jpg"
       - "/images/products/Artic-02/3.jpg"
       - "/images/products/Artic-02/4.jpg"
@@ -24,7 +24,7 @@ products:
     name: "ARF-0102"
     price: 5000
     images:
-      - "/images/products/ARF-0102/1.jpg"
+      - "images/products/ARF-0102/1.jpg"
       - "/images/products/ARF-0102/2.jpg"
       - "/images/products/ARF-0102/3.jpg"
       - "/images/products/ARF-0102/4.jpg"
