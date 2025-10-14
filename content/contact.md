@@ -10,6 +10,8 @@ We'd love to hear from you! Whether you have questions about our instruments, ne
 
 ## Visit Our Showroom
 
+![Our Showroom](/images/assets/shop.png)
+
 **Address:**<br>
 Ambalathumbhagom, poruvazhy, kollam, kerala 690520
 
@@ -26,5 +28,3 @@ Ambalathumbhagom, poruvazhy, kollam, kerala 690520
 ## Send us a Message
 
 Have a question about our collection? Want to schedule a private viewing? Or just want to say hello? Drop us a call or mail, and we'll get back to you within 24 hours.
-
-
