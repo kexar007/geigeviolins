@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions: # Add this block
+      contents: write # Grant write permissions to the contents of the repository
     steps:
       - name: Checkout
         uses: actions/checkout@v4
