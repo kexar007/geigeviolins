@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Water+Brush&display=swap");
+
 /* Reset and base styles - Mobile First */
 * {
   margin: 0;
@@ -149,7 +151,9 @@ body {
 /* This grid is now used for BOTH featured and all products pages */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  /*   grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+ */
+  grid-template-columns: repeat(2, 250px);
   gap: 24px;
   max-width: 1400px;
   margin: 0 auto 48px auto;
@@ -164,6 +168,10 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
+  width: 250px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-item:hover {
@@ -178,8 +186,8 @@ body {
 }
 
 .product-image {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 70%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -501,17 +509,34 @@ body {
 /* Home .featured-products styling */
 
 .products-container {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
+  padding: 2rem;
+  gap: 2rem;
+  align-content: space-between;
+  justify-content: center;
 }
 
 .home-products-box {
   background-color: yellow;
+  padding: 0 2rem 2rem 2rem;
+  min-width: 33vw;
+}
+.home-products-box h3 {
+  justify-self: center;
+  font-family: "Water Brush", serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: clamp(1rem, 4vw, 7rem);
+  padding: 3rem;
 }
 .home-products-grid {
-  columns: 200px;
+  columns: 12vw;
 }
 
 .home-products-grid img {
   width: 100%;
+  display: block;
+  margin-bottom: 20px;
 }
