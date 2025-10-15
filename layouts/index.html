@@ -18,7 +18,9 @@
     <div class="home-products-box">
       <h3>{{ .name }}</h3>
       <div class="home-products-grid">
-        <img src="{{ index .images 0 | relURL }}" alt="{{ .name }}" />
+        {{ range .images }}
+        <img src="{{ . | relURL }}" />
+        {{ end }}
       </div>
     </div>
     {{ end }}
