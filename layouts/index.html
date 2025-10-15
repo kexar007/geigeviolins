@@ -1,40 +1,27 @@
 {{ define "main" }}
 <!-- Hero Section -->
 <section class="hero">
-    <div class="hero-content">
-        <h1>{{ .Site.Title }}</h1>
-        <p class="tagline">Discover a curated collection of violins suitable for all levels, from beginners to professionals.</p>
-    </div>
+  <div class="hero-content">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="tagline">
+      Discover a curated collection of violins suitable for all levels, from
+      beginners to professionals.
+    </p>
+  </div>
 </section>
-   
-
-
 
 <!-- NEW RESPONSIVE IMAGE GALLERY SECTION -->
-      <section class="image-gallery">
-        <div class="container">
-          <h2 class="gallery-title">Featured Products</h2>
-          <div class="gallery-grid">
-            {{/* Read all files from the specified directory */}}
-            {{ range readDir "static/images/products" }}
-              {{/* Make sure it's a file and not a directory */}}
-              {{ if not .IsDir }}
-                <div class="gallery-card">
-                  <img src="{{ (printf "images/products/%s" .Name) | relURL }}" alt="Image of {{ .Name }}">
-                </div>
-              {{ end }}
-            {{ end }}
-          </div>
-        </div>
-      </section>
-
-
-
-
-
-
-
-
-
-
+<section class="image-gallery">
+  <h2 class="gallery-title">Featured Products</h2>
+  <div class="products-container">
+    {{ range .Site.Data.products.products}}
+    <div class="home-products-box">
+      <h3>{{ .name }}</h3>
+      <div class="home-products-grid">
+        <img src="{{ index .images 0 | relURL }}" alt="{{ .name }}" />
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
 {{ end }}
