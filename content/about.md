@@ -1,10 +1,8 @@
 ---
-title: "About Geige Violins"
-date: 2024-01-01
+title: "Geige&trade;"
+date: 2025-01-01
 type: "about"
 ---
-
-
 
 ## Our Expertise
 

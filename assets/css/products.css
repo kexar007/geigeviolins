@@ -1,0 +1,108 @@
+/* This grid is now used for BOTH featured and all products pages */
+.product-grid {
+  display: grid;
+  /*   grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+ */
+  grid-template-columns: repeat(2, 250px);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto 48px auto;
+}
+
+.product-item {
+  background: #fdfdff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.product-image-container {
+  overflow: hidden;
+  background: white;
+  aspect-ratio: 1 / 1;
+}
+
+.product-image {
+  width: 90%;
+  height: 70%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.product-name a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-name a:hover {
+  color: #667eea;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #c92a2a;
+  margin-bottom: 12px;
+}
+
+.product-description {
+  font-size: 0.85rem;
+  color: #6c757d;
+  line-height: 1.5;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+.view-all {
+  text-align: center;
+}
+
+.btn-primary {
+  display: block;
+  background: #667eea;
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  margin-top: auto;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background: #5a6fd8;
+}

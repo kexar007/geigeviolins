@@ -1,57 +1,114 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .Title }} - {{ .Site.Title }}</title>
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-</head>
-<body>
-    <div class="page-wrapper">
-        <!-- Header with Navigation -->
-        {{ partial "header.html" . }}
+    <link rel="icon" type="image/x-icon" href="{{ "images/logo/favicon.ico" |
+    relURL }}">
 
-        <!-- Main Content -->
-        <main class="main-content">
-            {{ block "main" . }}{{ end }}
-        </main>
+    <!-- Main stylesheet -->
+    {{ $style := resources.Get "css/style.css" }} {{ if $style }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+    {{ end }}
+    <!-- Google Fonts -->
 
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="container">
-                <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
-            </div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
+    <!-- Background animation stylesheet (using a new variable name for clarity) -->
+    {{ $bgStyle := resources.Get "css/background.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $bgStyle.RelPermalink }}" />
 
- <div className="contact">
-      <h2>Contact Us</h2>
-      <div className="map-container">
-        <div>
-          <MapPin className="inline-block mr-2" />
-          <span>Ambalathumbhagom, poruvazhy, kollam, kerala 690520</span>
+    {{ $bgStyle2 := resources.Get "css/home-product-gallery.css" | minify |
+    fingerprint }}
+    <link rel="stylesheet" href="{{ $bgStyle2.RelPermalink }}" />
+    {{ $product_Style:= resources.Get "css/products.css" | minify | fingerprint
+    }}
+    <link rel="stylesheet" href="{{ $product_Style.RelPermalink }}" />
+  </head>
+  <body>
+    <canvas id="animus"></canvas>
+
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo-container">
+            <a href="{{ .Site.BaseURL }}" class="nav-logo">
+              <img src="{{ "images/assets/logo.png" | relURL }}" alt="ATMOS Lab
+              Logo" class="nav-logo-image">
+            </a>
+            <span class="nav-title">GEIGE</span>
+          </div>
+          <ul class="nav-menu">
+            {{ range .Site.Menus.main }}
+            <li class="nav-item{{ if .HasChildren }} dropdown{{ end }}">
+              <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
+              {{ if .HasChildren }}
+              <ul class="dropdown-menu">
+                {{ range .Children }}
+                <li class="nav-item">
+                  <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
+                </li>
+                {{ end }}
+              </ul>
+              {{ end }}
+            </li>
+            {{ end }}
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
         </div>
-        <div>
-          <Phone className="inline-block mr-2" />
-          <span>9020150451</span>
+      </nav>
+    </header>
+
+    <main class="main-content">{{ block "main" . }}{{ end }}</main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>GEIGE&trade;</h3>
+            <p>
+              Discover a curated collection of violins suitable for all levels,
+              from beginners to professionals.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+              <li><a href="{{ .Site.BaseURL }}products/">Products</a></li>
+              <li><a href="{{ .Site.BaseURL }}contact/">Contact</a></li>
+              <li><a href="{{ .Site.BaseURL }}about/">About</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>9020150451</p>
+            <p>Ambalathumbhagom, poruvazhy, kollam, kerala 690520</p>
+          </div>
         </div>
-        <div>
-          <Mail className="inline-block mr-2" />
-          <span>1houseofstrings@gmail.com</span>
+        <div class="footer-bottom">
+          <p>&copy; {{ now.Format "2006" }} GEIGE. All rights reserved.</p>
         </div>
-        <iframe title="house of Strings" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3072.907126800511!2d76.6594504!3d9.074003399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b060f6c304d86f7%3A0xbccece1097853062!2sHOUSE%20OF%20STRINGS!5e1!3m2!1sen!2sin!4v1735039442669!5m2!1sen!2sin"></iframe>
-        <div>_____________</div>
       </div>
-    </div>
+    </footer>
 
+    <!-- Main site script (for hamburger menu, etc.) -->
+    {{ $script := resources.Get "js/script.js" }} {{ if $script }}
+    <script src="{{ $script.RelPermalink }}"></script>
+    {{ end }}
 
+    <!-- CORRECT: Removed the duplicate main block from here -->
 
+    <!-- Background animation script -->
 
-
-
-
-
-
-        </footer>
-    </div>
-</body>
+    <script defer src="{{ .Site.BaseURL }}js/animus-background.js"></script>
+  </body>
 </html>
