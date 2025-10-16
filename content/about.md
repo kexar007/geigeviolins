@@ -1,5 +1,5 @@
 ---
-title: "Geige&trade;"
+title: "GEIGE™"
 date: 2025-01-01
 type: "about"
 ---
