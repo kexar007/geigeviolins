@@ -1,27 +1,21 @@
 {{ define "main" }}
-<section class="page-header">
-    <div class="container">
-        <h1>{{ .Title }}</h1>
-        <p class="page-description">{{ .Content }}</p>
-    </div>
-</section>
+<section>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Content }}</section>
 
-<section class="products-page">
-    <div class="container">
-        <div class="product-grid">
-            
-{{ range  .Site.Data.products.products}}
-            <div class="product-item">
-                <img src="{{ index .images 0 | relURL }}" alt="{{ .name }}" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name">{{ .name }}</h3>
-                    <p class="product-price">₹{{ .price }}</p>
-                    <p class="product-description">{{ .description }}</p>
-                    <a href="{{ "/contact/" | relURL }}" class="btn-secondary">Contact</a>
+<section>
+    <div>
+        {{ range  .Site.Data.products.products}}
+            <div>
+                <img src="{{ index .images 0 | relURL }}" alt="{{ .name }}">
+                <div>
+                    <h3>{{ .name }}</h3>
+                    <p>₹{{ .price }}</p>
+                    <p>{{ .description }}</p>
+                    <a href="{{ "/contact/" | relURL }}">Contact</a>
                 </div>
             </div>
             {{ end }}
-        </div>
     </div>
 </section>
 {{ end }}

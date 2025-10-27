@@ -1,13 +1,9 @@
 {{ define "main" }}
-<section class="page-header">
-  <div class="container">
-    <h1>{{ .Title | safeHTML }}</h1>
-  </div>
+<section>
+  <h1>{{ .Title | safeHTML }}</h1>
 </section>
 
-<section class="page-content">
-  <div class="container">
-    <div class="content">{{ .Content }}</div>
-  </div>
+<section>
+  <div>{{ .Content }}</div>
 </section>
 {{ end }}

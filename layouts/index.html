@@ -1,22 +1,21 @@
 {{ define "main" }}
-<div class="container">
   <!-- Hero Section -->
-  <section class="hero-section">
-    <h1 class="hero-title">GEIGE&trade;</h1>
-    <p class="hero-subtitle">
+  <section>
+    <h1>GEIGE&trade;</h1>
+    <p>
       Discover a curated collection of violins suitable for all levels, from
       beginners to professionals.
     </p>
   </section>
 
-  <section class="featured-products-section">
-    <h1 class="section-title">Featured Products</h1>
+  <section>
+    <h1>Featured Products</h1>
 
-    <div class="products-container">
+    <div>
       {{ range .Site.Data.products.products}}
-      <div class="home-products-box">
+      <div>
         <h3>{{ .name }}</h3>
-        <div class="home-products-grid">
+        <div>
           {{ range .images }}
           <img src="{{ . | relURL }}" />
           {{ end }}
@@ -25,5 +24,4 @@
       {{ end }}
     </div>
   </section>
-</div>
 {{ end }}

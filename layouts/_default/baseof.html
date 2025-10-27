@@ -1,114 +1,87 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.LanguageCode }}" color-scheme="light dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .Title }} - {{ .Site.Title }}</title>
-    <link rel="icon" type="image/x-icon" href="{{ "images/logo/favicon.ico" |
-    relURL }}">
-
-    <!-- Main stylesheet -->
+    <link rel="icon" type="image/x-xicon" href="{{ "images/logo/favicon.ico" | relURL }}">
+    
+    <!-- Google Fonts - Variable Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Geist:wght@100..900&family=Crimson+Text:wght@400..700&display=swap" rel="stylesheet">
+    
     {{ $style := resources.Get "css/style.css" }} {{ if $style }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
     {{ end }}
-    <!-- Google Fonts -->
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    {{ $headerFooterStyle := resources.Get "css/header-footer.css" }} {{ if $headerFooterStyle }}
+    <link rel="stylesheet" href="{{ $headerFooterStyle.RelPermalink }}" />
+    {{ end }}
 
-    <!-- Background animation stylesheet (using a new variable name for clarity) -->
-    {{ $bgStyle := resources.Get "css/background.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $bgStyle.RelPermalink }}" />
-
-    {{ $bgStyle2 := resources.Get "css/home-product-gallery.css" | minify |
-    fingerprint }}
-    <link rel="stylesheet" href="{{ $bgStyle2.RelPermalink }}" />
-    {{ $product_Style:= resources.Get "css/products.css" | minify | fingerprint
-    }}
-    <link rel="stylesheet" href="{{ $product_Style.RelPermalink }}" />
+    {{ $homepageStyle := resources.Get "css/homepage.css" }} {{ if $homepageStyle }}
+    <link rel="stylesheet" href="{{ $homepageStyle.RelPermalink }}" />
+    {{ end }}
   </head>
   <body>
-    <canvas id="animus"></canvas>
+    
 
-    <header class="header">
-      <nav class="navbar">
-        <div class="nav-container">
-          <div class="logo-container">
-            <a href="{{ .Site.BaseURL }}" class="nav-logo">
-              <img src="{{ "images/assets/logo.png" | relURL }}" alt="ATMOS Lab
-              Logo" class="nav-logo-image">
-            </a>
-            <span class="nav-title">GEIGE</span>
-          </div>
-          <ul class="nav-menu">
-            {{ range .Site.Menus.main }}
-            <li class="nav-item{{ if .HasChildren }} dropdown{{ end }}">
-              <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
-              {{ if .HasChildren }}
-              <ul class="dropdown-menu">
-                {{ range .Children }}
-                <li class="nav-item">
-                  <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
-                </li>
-                {{ end }}
-              </ul>
+    <header>
+      <nav>
+        <a href="{{ .Site.BaseURL }}">
+          <img src="{{ "images/assets/logo.png" | relURL }}" alt="ATMOS Lab Logo">
+          <span>GEIGE</span>
+        </a>
+        
+        <ul>
+          {{ range .Site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ if .HasChildren }}
+            <ul>
+              {{ range .Children }}
+              <li>
+                <a href="{{ .URL }}">{{ .Name }}</a>
+              </li>
               {{ end }}
-            </li>
+            </ul>
             {{ end }}
-          </ul>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-        </div>
+          </li>
+          {{ end }}
+        </ul>
       </nav>
     </header>
 
-    <main class="main-content">{{ block "main" . }}{{ end }}</main>
+    <main>{{ block "main" . }}{{ end }}</main>
 
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>GEIGE&trade;</h3>
-            <p>
-              Discover a curated collection of violins suitable for all levels,
-              from beginners to professionals.
-            </p>
-          </div>
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="{{ .Site.BaseURL }}">Home</a></li>
-              <li><a href="{{ .Site.BaseURL }}products/">Products</a></li>
-              <li><a href="{{ .Site.BaseURL }}contact/">Contact</a></li>
-              <li><a href="{{ .Site.BaseURL }}about/">About</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Contact</h4>
-            <p>9020150451</p>
-            <p>Ambalathumbhagom, poruvazhy, kollam, kerala 690520</p>
-          </div>
+    <footer>
+      <div>
+        <div>
+          <h3>GEIGE&trade;</h3>
+          <p>
+            Discover a curated collection of violins suitable for all levels,
+            from beginners to professionals.
+          </p>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; {{ now.Format "2006" }} GEIGE. All rights reserved.</p>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+            <li><a href="{{ .Site.BaseURL }}products/">Products</a></li>
+            <li><a href="{{ .Site.BaseURL }}contact/">Contact</a></li>
+            <li><a href="{{ .Site.BaseURL }}about/">About</a></li>
+          </ul>
         </div>
+        <div>
+          <h4>Contact</h4>
+          <p>9020150451</p>
+          <p>Ambalathumbhagom, poruvazhy, kollam, kerala 690520</p>
+        </div>
+      </div>
+      <div>
+        <p>&copy; {{ now.Format "2006" }} GEIGE. All rights reserved.</p>
       </div>
     </footer>
 
-    <!-- Main site script (for hamburger menu, etc.) -->
-    {{ $script := resources.Get "js/script.js" }} {{ if $script }}
-    <script src="{{ $script.RelPermalink }}"></script>
-    {{ end }}
-
-    <!-- CORRECT: Removed the duplicate main block from here -->
-
-    <!-- Background animation script -->
-
-    <script defer src="{{ .Site.BaseURL }}js/animus-background.js"></script>
   </body>
 </html>
