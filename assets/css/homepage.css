@@ -191,65 +191,62 @@ border: 1px solid var(--color-text);
  transform: translate(-50%,-50%);
 }
 
-/* Initial State: Tightly stacked with some cards hidden */
+/* Initial State: Define unique variables for each card's hover position */
 .big-card:nth-child(1) {
   transform: translateX(-4%) rotate(-3deg);
-  border: red 3px solid;
+  --tx: -50%;
+  --ty: 10%;
+  --rot: -18deg;
 }
 
 .big-card:nth-child(2) {
   transform: translateX(-2%) rotate(-2deg);
+  --tx: -35%;
+  --ty: 5%;
+  --rot: -12deg;
 }
 
 .big-card:nth-child(3) {
   transform: translateX(0%) rotate(-1deg);
+  --tx: -15%;
+  --ty: 2%;
+  --rot: -6deg;
 }
 
 .big-card:nth-child(4) {
   transform: translateX(2%) rotate(1deg);
+  --tx: 15%;
+  --ty: 2%;
+  --rot: 6deg;
 }
 
 .big-card:nth-child(5) {
   transform: translateX(4%) rotate(2deg);
+  --tx: 35%;
+  --ty: 5%;
+  --rot: 12deg;
 }
 
 .big-card:nth-child(6) {
   transform: translateX(6%) rotate(3deg);
+  --tx: 50%;
+  --ty: 10%;
+  --rot: 18deg;
 }
 
 
-/* Hover State: Narrower fan-out reveal */
-.card-group:hover > .big-card:nth-child(1) {
-  transform: translate(-50%, 10%) rotate(-18deg);
+/* Hover State on the whole group: Cards fan out using their variables */
+.card-group:hover > .big-card {
+  transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
 }
 
-.card-group:hover > .big-card:nth-child(2) {
-  transform: translate(-35%, 5%) rotate(-12deg);
-}
 
-.card-group:hover > .big-card:nth-child(3) {
-  transform: translate(-15%, 2%) rotate(-6deg);
+/* --- THIS IS THE SINGLE RULE YOU ASKED FOR --- */
+/* On individual card hover: cancel rotation and bring to front */
+.card-group:hover > .big-card:hover {
+  transform: translate(var(--tx), var(--ty)) rotate(0deg) scale(1.05);
+  z-index: 10;
 }
-
-.card-group:hover > .big-card:nth-child(4) {
-  transform: translate(15%, 2%) rotate(6deg);
-}
-
-.card-group:hover > .big-card:nth-child(5) {
-  transform: translate(35%, 5%) rotate(12deg);
-}
-
-.card-group:hover > .big-card:nth-child(6) {
-  transform: translate(50%, 10%) rotate(18deg);
-}
-
-.big-card:hover{
-  backdrop-filter: blur(10px);
-  cursor: pointer;
-  
-  
-}
-
 
 
 
