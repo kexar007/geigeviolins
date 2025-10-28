@@ -126,6 +126,37 @@ main section:nth-child(2) > div > div > div img:hover {
     
 }
 
+.card-container.container hr{
+height: 0; /* Remove the default height */
+  border: none; /* Reset all borders */
+  border-top: 1px solid #ccc; /* Apply a 1-pixel solid light gray line to the top */
+  margin: 1em 0; /* Add some vertical space for better layout */  
+   height: 2px; 
+ background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
+
+}
+
+.card-container.container span{
+font-family: var(--font-accent);
+font-weight: 500;
+font-size: 2rem; 
+text-transform: uppercase;
+padding: 10%;
+border: 1px solid var(--color-text);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .card-group, .card{
   aspect-ratio: 3/4;
 
@@ -160,53 +191,64 @@ main section:nth-child(2) > div > div > div img:hover {
  transform: translate(-50%,-50%);
 }
 
-.big-card:nth-child(1){  
-  transform: translateX(-15%)rotate(-2deg);
-  
-}
-.big-card:nth-child(2){
-  
-  transform: rotate(-1deg);
-}
-.big-card:nth-child(3){
-  transform: translateX(-6%) rotate(2deg);
- 
+/* Initial State: Tightly stacked with some cards hidden */
+.big-card:nth-child(1) {
+  transform: translateX(-4%) rotate(-3deg);
+  border: red 3px solid;
 }
 
-.big-card:nth-child(4){
-  transform: translate(10%,3%) rotate(5deg);
-  
-}
-.big-card:nth-child(5){
-  transform: translate(10%,3%) rotate(5deg);
-  
-}
-.big-card:nth-child(6){
-  transform: translate(10%,3%) rotate(5deg);
-  
+.big-card:nth-child(2) {
+  transform: translateX(-2%) rotate(-2deg);
 }
 
-.card-group:hover> .big-card:nth-child(1){
-  transform: translate(-100%,16%) rotate(-24deg);
+.big-card:nth-child(3) {
+  transform: translateX(0%) rotate(-1deg);
 }
-.card-group:hover> .big-card:nth-child(2){
-  transform: translate(-50%,8%) rotate(-16deg);
+
+.big-card:nth-child(4) {
+  transform: translateX(2%) rotate(1deg);
 }
-.card-group:hover> .big-card:nth-child(3){
-  transform: translate(-25%,8%) rotate(-8deg);
+
+.big-card:nth-child(5) {
+  transform: translateX(4%) rotate(2deg);
 }
-.card-group:hover> .big-card:nth-child(4){
-  transform: translate(50%,8%) rotate(8deg);
-}
-.card-group:hover> .big-card:nth-child(5){
-  transform: translate(75%,16%) rotate(16deg);
-}
-.card-group:hover> .big-card:nth-child(6){
-  transform: translate(100%,16%) rotate(24deg);
+
+.big-card:nth-child(6) {
+  transform: translateX(6%) rotate(3deg);
 }
 
 
+/* Hover State: Narrower fan-out reveal */
+.card-group:hover > .big-card:nth-child(1) {
+  transform: translate(-50%, 10%) rotate(-18deg);
+}
 
+.card-group:hover > .big-card:nth-child(2) {
+  transform: translate(-35%, 5%) rotate(-12deg);
+}
+
+.card-group:hover > .big-card:nth-child(3) {
+  transform: translate(-15%, 2%) rotate(-6deg);
+}
+
+.card-group:hover > .big-card:nth-child(4) {
+  transform: translate(15%, 2%) rotate(6deg);
+}
+
+.card-group:hover > .big-card:nth-child(5) {
+  transform: translate(35%, 5%) rotate(12deg);
+}
+
+.card-group:hover > .big-card:nth-child(6) {
+  transform: translate(50%, 10%) rotate(18deg);
+}
+
+.big-card:hover{
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  
+  
+}
 
 
 
