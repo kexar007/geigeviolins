@@ -8,20 +8,40 @@
     </p>
   </section>
 
-  <section>
+  <section id="products">
     <h1>Featured Products</h1>
-
-    <div>
-      {{ range .Site.Data.products.products}}
-      <div>
-        <h3>{{ .name }}</h3>
-        <div>
+      <div class="card-container container">
+        <div class="card-group group">
+        {{ range where .Site.Data.products.products "name" "Geige-005" }}
           {{ range .images }}
-          <img src="{{ . | relURL }}" />
+          <div class="big-card card" style="background-image: url('{{ . | relURL }}')">
+
+          </div>
           {{ end }}
+        {{ end }}
         </div>
       </div>
-      {{ end }}
-    </div>
+      <div class="card-container container">
+        <div class="card-group group">
+        {{ range where .Site.Data.products.products "name" "Geige-004" }}
+          {{ range .images }}
+          <div class="big-card card" style="background-image: url('{{ . | relURL }}')">
+            
+          </div>
+          {{ end }}
+        {{ end }}
+        </div>
+      </div>
+
+   
+     
+
+
+
+
+    
+
+    
+   
   </section>
 {{ end }}
