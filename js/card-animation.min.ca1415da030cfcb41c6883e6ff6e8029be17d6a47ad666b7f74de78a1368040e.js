@@ -1,0 +1,1 @@
+(()=>{(()=>{document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelectorAll(".card-group");if(e.length>0){const t={root:null,rootMargin:"0px",threshold:1},n=e=>{e.forEach(e=>{e.isIntersecting?e.target.classList.add("is-fanned-out"):e.target.classList.remove("is-fanned-out")})},s=new IntersectionObserver(n,t);e.forEach(e=>{s.observe(e)})}})})()})()

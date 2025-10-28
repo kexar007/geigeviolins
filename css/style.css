@@ -1,13 +1,17 @@
-/* Basic CSS Reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* /assets/css/style.css */
 
 :root {
+  /* Color Scheme */
   color-scheme: light dark;
   
+  /* Color Variables */
   --color-text: light-dark(#2b2b2b, #e8e8e8);
   --color-bg: light-dark(#fafafa, #1a1a1a);
+  --color-border: light-dark(#e0e0e0, #333);
+  --color-primary-accent: light-dark(#0066cc, #4da6ff);
+  --color-secondary-accent: light-dark(#666, #ccc);
+  --color-footer-bg: light-dark(#f8f9fa, #2a2a2a);
+  --color-footer-text: light-dark(#888, #aaa);
   
   /* Font Variables */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -24,84 +28,83 @@
   --font-weight-black: 900;
 }
 
-body {
+/* 1. Modern CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote, dl, dd {
   margin: 0;
-  padding-inline: min(5em, 8%);
+  padding: 0;
+}
+
+ul[role="list"], ol[role="list"] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: var(--font-primary);
   font-weight: var(--font-weight-normal);
   color: var(--color-text);
   background-color: var(--color-bg);
+  padding-inline: min(5em, 8%); /* Consistent horizontal padding */
 }
 
-/* Font Utility Classes */
-.font-primary { font-family: var(--font-primary); }
-.font-secondary { font-family: var(--font-secondary); }
-.font-accent { font-family: var(--font-accent); }
-.font-body { font-family: var(--font-body); }
+img, picture, svg {
+  max-width: 100%;
+  display: block;
+}
 
-.font-light { font-weight: var(--font-weight-light); }
-.font-normal { font-weight: var(--font-weight-normal); }
-.font-medium { font-weight: var(--font-weight-medium); }
-.font-semibold { font-weight: var(--font-weight-semibold); }
-.font-bold { font-weight: var(--font-weight-bold); }
-.font-black { font-weight: var(--font-weight-black); }
+input, button, textarea, select {
+  font: inherit;
+}
 
-/* Typography Hierarchy */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 2. Global Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-accent);
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
 }
 
-.brand, .logo, .nav-brand {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-weight-semibold);
-}
-
-.navigation, .nav-menu {
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-medium);
-}
-
-.article-text, .description, .content {
+p {
   font-family: var(--font-body);
-  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
 }
 
-/* Remove default margin and padding from common elements */
-h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote, dl, dd {
-  margin: 0;
-  padding: 0;
+a {
+  color: var(--color-primary-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class], ol[class] {
-  list-style: none;
+a:hover {
+  color: light-dark(hsl(from var(--color-primary-accent) h s l / 0.7)), 
+         light-dark(hsl(from var(--color-primary-accent) h s l / 0.7));
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Inherit fonts for inputs and buttons */
-input, button, textarea, select {
-  font: inherit;
-}
-
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* 3. Reusable Components / Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 min(5em, 8%);
 }
