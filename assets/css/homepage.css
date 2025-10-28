@@ -63,7 +63,7 @@ main section:nth-child(2) > div {
 }
 
 /* Product Cards */
-main section:nth-child(2) > div > div {
+main section:nth-child(2) > div > div:not(.card-group) {
   background: var(--color-bg);
   border: 1px solid light-dark(#e0e0e0, #333);
   border-radius: 1rem;
@@ -154,7 +154,43 @@ border: 1px solid var(--color-text);
 
 
 
+/*
+  ==============================================================
+  FIX FOR CARD ANIMATIONS
+  Add this entire block to your CSS file.
+  ==============================================================
+*/
 
+.card-group.group {
+  /*
+    1. CRITICAL FIX: Establishes the positioning context.
+    Now, the `position: absolute` cards will be positioned
+    relative to this container, not the whole page.
+  */
+  position: relative;
+
+  /*
+    2. CRITICAL FIX: Gives the container a defined height.
+    Since the cards are 25vmin wide with a 3/4 aspect ratio,
+    their height is ~33.3vmin. We give the container space to hold them.
+  */
+  height: 34vmin;
+
+  /*
+    3. ALIGNMENT FIX: Ensures the group itself is centered
+    within its parent grid container (.card-container).
+  */
+  justify-self: center;
+  align-self: center;
+
+  /*
+    These properties were in your general rules and were interfering.
+    We reset them here to ensure the card group is clean.
+  */
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
 
 
 .card-group, .card{
@@ -171,7 +207,9 @@ border: 1px solid var(--color-text);
     box-shadow: none;
 }
 
-
+.card-link-wrapper {
+  display: contents;
+}
 .card{
   background-size: cover;
   position: absolute;
@@ -191,62 +229,54 @@ border: 1px solid var(--color-text);
  transform: translate(-50%,-50%);
 }
 
-/* Initial State: Define unique variables for each card's hover position */
+/* Add a smooth transition to the cards */
+.big-card {
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+/* Initial State: Tightly stacked */
 .big-card:nth-child(1) {
   transform: translateX(-4%) rotate(-3deg);
-  --tx: -50%;
-  --ty: 10%;
-  --rot: -18deg;
 }
-
 .big-card:nth-child(2) {
   transform: translateX(-2%) rotate(-2deg);
-  --tx: -35%;
-  --ty: 5%;
-  --rot: -12deg;
 }
-
 .big-card:nth-child(3) {
   transform: translateX(0%) rotate(-1deg);
-  --tx: -15%;
-  --ty: 2%;
-  --rot: -6deg;
 }
-
 .big-card:nth-child(4) {
   transform: translateX(2%) rotate(1deg);
-  --tx: 15%;
-  --ty: 2%;
-  --rot: 6deg;
 }
-
 .big-card:nth-child(5) {
   transform: translateX(4%) rotate(2deg);
-  --tx: 35%;
-  --ty: 5%;
-  --rot: 12deg;
 }
-
 .big-card:nth-child(6) {
   transform: translateX(6%) rotate(3deg);
-  --tx: 50%;
-  --ty: 10%;
-  --rot: 18deg;
 }
 
-
-/* Hover State on the whole group: Cards fan out using their variables */
-.card-group:hover > .big-card {
-  transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
+/* --- REVEALED STATE --- */
+/* This class will be toggled by JavaScript */
+.card-group.is-fanned-out > .big-card:nth-child(1) {
+  transform: translate(-50%, 10%) rotate(-18deg);
+}
+.card-group.is-fanned-out > .big-card:nth-child(2) {
+  transform: translate(-35%, 5%) rotate(-12deg);
+}
+.card-group.is-fanned-out > .big-card:nth-child(3) {
+  transform: translate(-15%, 2%) rotate(-6deg);
+}
+.card-group.is-fanned-out > .big-card:nth-child(4) {
+  transform: translate(15%, 2%) rotate(6deg);
+}
+.card-group.is-fanned-out > .big-card:nth-child(5) {
+  transform: translate(35%, 5%) rotate(12deg);
+}
+.card-group.is-fanned-out > .big-card:nth-child(6) {
+  transform: translate(50%, 10%) rotate(18deg);
 }
 
-
-/* --- THIS IS THE SINGLE RULE YOU ASKED FOR --- */
-/* On individual card hover: cancel rotation and bring to front */
-.card-group:hover > .big-card:hover {
-  transform: translate(var(--tx), var(--ty)) rotate(0deg) scale(1.05);
-  z-index: 10;
-}
+/* We no longer need the individual card hover rules for this effect */
 
 
 

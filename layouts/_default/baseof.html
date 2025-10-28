@@ -83,5 +83,20 @@
       </div>
     </footer>
 
+
+
+{{/* Find the resource */}}
+{{ $cardJS := resources.Get "js/card-animation.js" }}
+
+{{/* Only process it if the file was found */}}
+{{ if $cardJS }}
+  {{ $builtJS := $cardJS | js.Build | minify | fingerprint }}
+  <script src="{{ $builtJS.RelPermalink }}" integrity="{{ $builtJS.Data.Integrity }}" defer></script>
+{{ else }}
+  {{/* Optional: Log a warning in your terminal during development */}}
+  {{ warnf "JavaScript file not found: js/card-animation.js" }}
+{{ end }}
+
+      
   </body>
 </html>
