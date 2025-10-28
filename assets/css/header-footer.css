@@ -5,9 +5,6 @@ header {
   background-color: var(--color-bg);
   border-bottom: 1px solid light-dark(#e0e0e0, #333);
   padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 header nav {
