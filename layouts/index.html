@@ -11,26 +11,37 @@
       {{ $products := where .Site.Data.products.products "name" "Geige-005" }}
       {{ range $products }}
         <span class="product-name">{{ .name }}</span>
-        <div class="card-group">
+        <a href={{ "/contact/" | relURL }}>
+        <div class="card-group"> 
           {{ range (.images | collections.Reverse) }}
             <div class="card" style="background-image: url('{{ . | relURL }}');"></div>
-          {{ end }}
+          {{ end }}          
         </div>
+        </a>
       {{ end }}
       <hr>
     </div>
     
+
     <div class="product-card-container">
       {{ $products := where .Site.Data.products.products "name" "Geige-004" }}
-       {{ range $products }}
+      {{ range $products }}
         <span class="product-name">{{ .name }}</span>
-        <div class="card-group">
+        <a href={{ "/contact/" | relURL }}>
+        <div class="card-group"> 
           {{ range (.images | collections.Reverse) }}
             <div class="card" style="background-image: url('{{ . | relURL }}');"></div>
-          {{ end }}
+          {{ end }}          
         </div>
+        </a>
       {{ end }}
       <hr>
     </div>
+
+
+
+
+
+
   </section>
 {{ end }}

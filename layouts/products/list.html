@@ -1,21 +1,63 @@
 {{ define "main" }}
-<section>
+<div class="product-list-container">
+  <header class="product-list-header">
     <h1>{{ .Title }}</h1>
-    <p>{{ .Content }}</section>
+    <p>{{ .Content }}</p>
+  </header>
 
-<section>
-    <div>
-        {{ range  .Site.Data.products.products}}
-            <div>
-                <img src="{{ index .images 0 | relURL }}" alt="{{ .name }}">
-                <div>
-                    <h3>{{ .name }}</h3>
-                    <p>₹{{ .price }}</p>
-                    <p>{{ .description }}</p>
-                    <a href="{{ "/contact/" | relURL }}">Contact</a>
-                </div>
-            </div>
+  <div class="product-grid">
+    {{ range $index, $product := .Site.Data.products.products }}
+      <article class="product-card" id="product-{{ $index }}">
+        
+        <!-- Product Image Slider -->
+        <div class="product-image-slider">
+          <div class="slider-track">
+            {{ range .images }}
+              <img src="{{ . | relURL }}" alt="Image of {{ $product.name }}">
             {{ end }}
-    </div>
-</section>
+          </div>
+          {{ if gt (len .images) 1 }}
+            <button class="slider-nav prev" onclick="moveSlide('product-{{ $index }}', -1)">&#10094;</button>
+            <button class="slider-nav next" onclick="moveSlide('product-{{ $index }}', 1)">&#10095;</button>
+          {{ end }}
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+          <h3>{{ .name }}</h3>
+          <p class="product-price">₹{{ .price }}</p>
+          <p class="product-description">{{ .description }}</p>
+          <a href="{{ "/contact/" | relURL }}" class="product-cta">Contact to Buy</a>
+        </div>
+
+      </article>
+    {{ end }}
+  </div>
+</div>
+
+{{/* Simple inline script for the sliders */}}
+<script>
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.dataset.currentSlide = 0;
+  });
+
+  function moveSlide(cardId, direction) {
+    const card = document.getElementById(cardId);
+    const track = card.querySelector('.slider-track');
+    const slides = card.querySelectorAll('.slider-track img');
+    const totalSlides = slides.length;
+    let currentSlide = parseInt(card.dataset.currentSlide, 10);
+
+    currentSlide += direction;
+
+    if (currentSlide < 0) {
+      currentSlide = totalSlides - 1;
+    } else if (currentSlide >= totalSlides) {
+      currentSlide = 0;
+    }
+
+    card.dataset.currentSlide = currentSlide;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+</script>
 {{ end }}

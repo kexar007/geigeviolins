@@ -30,6 +30,12 @@
         <link rel="stylesheet" href="{{ $singleStyle.RelPermalink }}" />
       {{ end }}
     {{ end }}
+     {{ if eq .Type "products" }}
+      {{ $productsListStyle := resources.Get "css/products-list.css" }}
+      {{ if $productsListStyle }}
+        <link rel="stylesheet" href="{{ $productsListStyle.RelPermalink }}" />
+      {{ end }}
+    {{ end }}
   </head>
   <body>
     
