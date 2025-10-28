@@ -1,62 +1,36 @@
 {{ define "main" }}
-  <!-- Hero Section -->
-  <section>
+  <section class="hero-section">
     <h1>GEIGE&trade;</h1>
-    <p>
-      Discover a curated collection of violins suitable for all levels, from
-      beginners to professionals.
-    </p>
+    <p>Discover a curated collection of violins suitable for all levels, from beginners to professionals.</p>
   </section>
 
-  <section id="products">
+  <section class="products-section">
     <h1>Featured Products</h1>
 
-
-    <div class="card-container container">
-  {{ $products := where .Site.Data.products.products "name" "Geige-005" }}
-  {{ range $products }}
-    <span>{{ .name }}</span>
-    <div class="card-group group">
-      {{ range (.images | collections.Reverse) }}
-        <div class="big-card card"
-             style="background-image: url('{{ . | relURL }}');">
+    <div class="product-card-container">
+      {{ $products := where .Site.Data.products.products "name" "Geige-005" }}
+      {{ range $products }}
+        <span class="product-name">{{ .name }}</span>
+        <div class="card-group">
+          {{ range (.images | collections.Reverse) }}
+            <div class="card" style="background-image: url('{{ . | relURL }}');"></div>
+          {{ end }}
         </div>
       {{ end }}
+      <hr>
     </div>
-  {{ end }}
-  <hr>
-</div>
-
-
-
-
-
-        <div class="card-container container">
-  {{ $products := where .Site.Data.products.products "name" "Geige-004" }}
-  {{ range $products }}
-    <span>{{ .name }}</span>
-    <div class="card-group group">
-      {{ range (.images | collections.Reverse) }}
-        <div class="big-card card"
-             style="background-image: url('{{ . | relURL }}');">
+    
+    <div class="product-card-container">
+      {{ $products := where .Site.Data.products.products "name" "Geige-004" }}
+       {{ range $products }}
+        <span class="product-name">{{ .name }}</span>
+        <div class="card-group">
+          {{ range (.images | collections.Reverse) }}
+            <div class="card" style="background-image: url('{{ . | relURL }}');"></div>
+          {{ end }}
         </div>
       {{ end }}
+      <hr>
     </div>
-  {{ end }}
-  <hr>
-</div>
-
-
-     
-   
-     
-
-
-
-
-    
-
-    
-   
   </section>
 {{ end }}

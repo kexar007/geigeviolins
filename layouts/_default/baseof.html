@@ -22,66 +22,65 @@
     {{ $homepageStyle := resources.Get "css/homepage.css" }} {{ if $homepageStyle }}
     <link rel="stylesheet" href="{{ $homepageStyle.RelPermalink }}" />
     {{ end }}
+
+
+      {{ if .IsPage }}
+      {{ $singleStyle := resources.Get "css/single-page.css" }}
+      {{ if $singleStyle }}
+        <link rel="stylesheet" href="{{ $singleStyle.RelPermalink }}" />
+      {{ end }}
+    {{ end }}
   </head>
   <body>
     
 
-    <header>
-      <nav>
-        <a href="{{ .Site.BaseURL }}">
-          <img src="{{ "images/assets/logo.png" | relURL }}" alt="ATMOS Lab Logo">
-          <span>GEIGE</span>
-        </a>
-        
-        <ul>
-          {{ range .Site.Menus.main }}
-          <li>
-            <a href="{{ .URL }}">{{ .Name }}</a>
-            {{ if .HasChildren }}
-            <ul>
-              {{ range .Children }}
-              <li>
-                <a href="{{ .URL }}">{{ .Name }}</a>
-              </li>
-              {{ end }}
-            </ul>
-            {{ end }}
-          </li>
+   <!-- In baseof.html -->
+<header>
+  <nav>
+    <a href="{{ .Site.BaseURL }}" class="brand-link">
+      <img src="{{ "images/assets/logo.png" | relURL }}" alt="GEIGE Logo">
+      <span>GEIGE</span>
+    </a>
+    <ul class="nav-menu">
+      {{ range .Site.Menus.main }}
+      <li>
+        <a href="{{ .URL }}">{{ .Name }}</a>
+        {{ if .HasChildren }}
+        <ul class="dropdown-menu">
+          {{ range .Children }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
           {{ end }}
         </ul>
-      </nav>
-    </header>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>
 
-    <main>{{ block "main" . }}{{ end }}</main>
+<main>{{ block "main" . }}{{ end }}</main>
 
-    <footer>
-      <div>
-        <div>
-          <h3>GEIGE&trade;</h3>
-          <p>
-            Discover a curated collection of violins suitable for all levels,
-            from beginners to professionals.
-          </p>
-        </div>
-        <div>
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="{{ .Site.BaseURL }}">Home</a></li>
-            <li><a href="{{ .Site.BaseURL }}products/">Products</a></li>
-            <li><a href="{{ .Site.BaseURL }}contact/">Contact</a></li>
-            <li><a href="{{ .Site.BaseURL }}about/">About</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <p>9020150451</p>
-          <p>Ambalathumbhagom, poruvazhy, kollam, kerala 690520</p>
-        </div>
-      </div>
-      <div>
-        <p>&copy; {{ now.Format "2006" }} GEIGE. All rights reserved.</p>
-      </div>
-    </footer>
+<footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>GEIGE&trade;</h3>
+      <p>Discover a curated collection of violins suitable for all levels, from beginners to professionals.</p>
+    </div>
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <!-- links -->
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <!-- contact info -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {{ now.Format "2006" }} GEIGE. All rights reserved.</p>
+  </div>
+</footer>
 
 
 

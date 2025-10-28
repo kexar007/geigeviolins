@@ -1,9 +1,13 @@
 {{ define "main" }}
-<section>
-  <h1>{{ .Title | safeHTML }}</h1>
-</section>
+  <article class="single-page-container">
 
-<section>
-  <div>{{ .Content }}</div>
-</section>
+    <header class="single-page-header">
+      <h1>{{ .Title | safeHTML }}</h1>
+    </header>
+
+    <div class="single-page-content">
+      {{ .Content }}
+    </div>
+
+  </article>
 {{ end }}
