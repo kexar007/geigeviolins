@@ -1,0 +1,6 @@
+{{- with resources.Get "images/favicon.png" -}}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ (.Resize "16x16").RelPermalink }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ (.Resize "32x32").RelPermalink }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ (.Resize "96x96").RelPermalink }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ (.Resize "180x180").RelPermalink }}">
+{{- end -}}
