@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}" color-scheme="light dark">
-  <head>
+ <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Title }} - {{ .Site.Title }}</title>
-    {{ partial "favicons.html" . }}
+
+    <!-- SEO Title -->
+    <title>{{ if .IsHome }}{{ .Site.Title | safeHTML }} | {{ .Site.Params.tagline }}{{ else }}{{ .Title }} | {{ .Site.Title | safeHTML }}{{ end }}</title>
+
+    <!-- SEO Meta Tags -->
+    {{- $description := .Description | default .Summary | default .Site.Params.description -}}
+    <meta name="description" content="{{ $description }}" />
+    <link rel="canonical" href="{{ .Permalink }}" />
+
+
+
     
-    <!-- Google Fonts - Variable Fonts -->
+    
+    <!-- Social Media Meta Tags (Open Graph & Twitter) -->
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+
+    <!-- Favicons -->
+    {{ partial "favicons.html" . }}
+
+      
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Geist:wght@100..900&family=Crimson+Text:wght@400..700&display=swap" rel="stylesheet">
     
-    {{ $style := resources.Get "css/style.css" }} {{ if $style }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+    <!-- Your Stylesheets (unchanged) -->
+    {{ $style := resources.Get "css/style.css" }}
+    {{ if $style }}
+      <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
     {{ end }}
 
-    {{ $headerFooterStyle := resources.Get "css/header-footer.css" }} {{ if $headerFooterStyle }}
-    <link rel="stylesheet" href="{{ $headerFooterStyle.RelPermalink }}" />
+    {{ $headerFooterStyle := resources.Get "css/header-footer.css" }}
+    {{ if $headerFooterStyle }}
+      <link rel="stylesheet" href="{{ $headerFooterStyle.RelPermalink }}" />
     {{ end }}
 
-    {{ $homepageStyle := resources.Get "css/homepage.css" }} {{ if $homepageStyle }}
-    <link rel="stylesheet" href="{{ $homepageStyle.RelPermalink }}" />
+    {{ $homepageStyle := resources.Get "css/homepage.css" }}
+    {{ if $homepageStyle }}
+      <link rel="stylesheet" href="{{ $homepageStyle.RelPermalink }}" />
     {{ end }}
 
-
-      {{ if .IsPage }}
+    {{ if .IsPage }}
       {{ $singleStyle := resources.Get "css/single-page.css" }}
       {{ if $singleStyle }}
         <link rel="stylesheet" href="{{ $singleStyle.RelPermalink }}" />
       {{ end }}
     {{ end }}
-     {{ if eq .Type "products" }}
+
+    {{ if eq .Type "products" }}
       {{ $productsListStyle := resources.Get "css/products-list.css" }}
       {{ if $productsListStyle }}
         <link rel="stylesheet" href="{{ $productsListStyle.RelPermalink }}" />
       {{ end }}
     {{ end }}
-  </head>
+</head>
   <body>
     
 
@@ -45,7 +68,7 @@
   <nav>
     <a href="{{ .Site.BaseURL }}" class="brand-link">
       <img src="{{ "images/assets/logo.png" | relURL }}" alt="GEIGE Logo">
-      <span>GEIGE</span>
+      <span>GEIGE&trade;</span>
     </a>
     <ul class="nav-menu">
       {{ range .Site.Menus.main }}

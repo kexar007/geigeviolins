@@ -1,77 +1,66 @@
+# hugo.toml
+
 baseURL = "https://geigeviolins.com/"
 languageCode = "en-us"
-title = "GEIGE"
+title = "GEIGE&trade;"
+
+# Main site author. Can be used in templates for structured data.
+[author]
+  name = "Rakesh R"
 
 # Site configuration
-copyright = "GEIGE"
-author = "Rakesh R"
+copyright = "Copyright © {year} GEIGE" # Using {year} is a Hugo feature to auto-update the year
 
-# Build configuration
+# Build configuration (your settings are good)
 buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-# Content configuration
-contentDir = "content"
-dataDir = "data"
-layoutDir = "layouts"
-publishDir = "public"
-archetypeDir = "archetypes"
+# Directory configuration (defaults are fine, no need to list them unless changed)
+# publishDir = "public" # This is the default, so you can remove it if you wish
 
 # Markup configuration
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      hardWraps = false
-      unsafe = true
-      xhtml = false
+      # Set to false for better security. Use shortcodes for raw HTML instead.
+      unsafe = false 
   [markup.highlight]
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
+    # Your highlight settings are fine, no changes needed here.
     noClasses = true
     style = "github"
-    tabWidth = 4
 
-# Menu configuration
+# Main navigation menu
 [[menu.main]]
   name = "Home"
   url = "/"
   weight = 1
-
 [[menu.main]]
   name = "Products"
   url = "/products/"
   weight = 2
-
 [[menu.main]]
   name = "Contact Us"
   url = "/contact/"
   weight = 3
-
 [[menu.main]]
   name = "About Us"
   url = "/about/"
   weight = 4
 
-# Parameters
+# Site-wide parameters used by SEO templates
 [params]
-  description = "GEIGE - violins and accessories brand."
-  keywords = ["violins", "violin bowa", "music instruments shop", "keyboards"]
-  favicon = "/favicon.ico"
-
-# Social media
-[[params.social]]
-  name = "Twitter"
-  url = "https://twitter.com/atmoslab"
-
-[[params.social]]
-  name = "LinkedIn"
-  url = "https://linkedin.com/company/atmoslab"
-
-[[params.social]]
-  name = "GitHub"
-  url = "https://github.com/atmoslab"
+  # This is the fallback meta description used in your <head>
+  description = "Discover high-quality violins, bows, keyboards and musical accessories at GEIGE. Your trusted brand for exceptional craftsmanship and sound."
+   tagline = "High-Quality Violins, Bows, keyboards & Accessories"
+  
+  # Social media links
+  [[params.social]]
+    name = "Twitter"
+    url = "https://twitter.com/your_twitter_handle" # Updated placeholder
+  [[params.social]]
+    name = "LinkedIn"
+    url = "https://linkedin.com/company/your_linkedin_page" # Updated placeholder
+  [[params.social]]
+    name = "GitHub"
+    url = "https://github.com/your_github_repo" # Updated placeholder
