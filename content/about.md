@@ -4,7 +4,7 @@ date: 2025-01-01
 type: "about"
 ---
 
-Founded by violinist Adoor S Anantha krishnan, Geige offers instruments chosen and prepared for students and professionals alike.
+Founded by violinist Adoor S Anantha krishnan, Geige offers instruments chosen and prepared for students and professionals alike. 
 
 Whether you're taking your first steps into the world of violin playing or you're a concert soloist seeking your next professional instrument, we're here to help you find the perfect match.
 
