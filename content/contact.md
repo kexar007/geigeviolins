@@ -10,10 +10,10 @@ We'd love to hear from you! Whether you have questions about our instruments, ne
 
 ## Visit Our Showroom
 
-**Address:**<br>
+**Address:**
 Ambalathumbhagom, poruvazhy, kollam, kerala 690520
 
-**Phone:** 9020150451<br>
+**Phone:** 9020150451
 **Email:** 1houseofstrings@gmail.com
 
 ## Business Hours
