@@ -18,9 +18,10 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2 # Note: @v3 or later is available
+        uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "latest"
+          extended: true  # Recommended: enables SCSS/SASS support common in many themes
 
       - name: Build
         run: hugo --minify
@@ -31,6 +32,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          # ---- ADD THESE TWO LINES ----
-          publish_branch: gh-pages
-          cname: geigeviolins.com
+          publish_branch: gh-pages       # Explicitly publishing to the standard gh-pages branch
+          cname: geigeviolins.com        # This forces the creation of the CNAME file
